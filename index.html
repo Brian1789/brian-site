@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brian Ochieng - Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #1e90ff;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      color: #1e90ff;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .animated-text {
+      font-size: 1.2rem;
+      color: #ccc;
+      height: 24px;
+      margin-bottom: 1rem;
+    }
+    p {
+      max-width: 600px;
+      margin: 0 auto 1rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .button, .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      margin-top: 1rem;
+      background-color: #1e90ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+    .button:hover, .whatsapp-button:hover {
+      background-color: #0c70d0;
+      transform: scale(1.05);
+    }
+    .whatsapp-button svg {
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin-top: 3rem;
+    }
+    .contact-form h2 {
+      margin-bottom: 1rem;
+      color: #1e90ff;
+    }
+    .contact-form label {
+      display: block;
+      margin: 0.5rem 0 0.3rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      background: #2a2a2a;
+      color: white;
+    }
+    .contact-form button {
+      background-color: #1e90ff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .contact-form button:hover {
+      background-color: #0c70d0;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://i.pravatar.cc/300?img=13" alt="Profile" class="profile-pic" />
+    <h1>Brian Ochieng</h1>
+    <div class="animated-text" id="animated-text"></div>
+    <p>I build smart, elegant web solutions and I'm on a journey to financial freedom — one project at a time. 💡</p>
+
+    <a href="https://briandevelops.lovable.app" class="button" target="_blank">View My Portfolio</a><br/>
+
+    <a href="https://wa.me/254742021609" class="whatsapp-button" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <path d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.259.596 4.463 1.727 6.401L3.2 28.8l6.566-1.698a12.72 12.72 0 0 0 6.235 1.597h.001c7.063 0 12.799-5.736 12.799-12.8s-5.736-12.8-12.8-12.8zm.001 23.2a10.897 10.897 0 0 1-5.503-1.505l-.393-.229-3.899 1.008 1.042-3.805-.255-.392a10.861 10.861 0 0 1-1.692-5.843c0-6.012 4.888-10.9 10.9-10.9 2.91 0 5.641 1.134 7.695 3.187s3.188 4.785 3.188 7.695c0 6.012-4.888 10.9-10.9 10.9zm6.136-8.261c-.336-.168-1.985-.98-2.294-1.092-.308-.112-.533-.168-.757.169-.224.336-.869 1.092-1.065 1.316-.196.224-.393.252-.729.084-.336-.168-1.417-.522-2.699-1.662-1-.894-1.674-1.995-1.87-2.331-.196-.336-.021-.517.147-.686.151-.15.336-.393.504-.589.168-.196.224-.336.336-.561.112-.224.056-.42-.028-.589-.084-.168-.757-1.835-1.038-2.515-.273-.656-.552-.567-.757-.577l-.646-.012c-.196 0-.514.07-.784.336s-1.03 1.005-1.03 2.451 1.055 2.841 1.202 3.041c.147.196 2.076 3.168 5.033 4.439.703.303 1.252.484 1.679.619.705.224 1.344.192 1.848.117.564-.084 1.985-.81 2.266-1.592.28-.785.28-1.46.196-1.593-.084-.133-.308-.21-.644-.379z"/>
+      </svg>
+      Chat on WhatsApp
+    </a>
+  </header>
+
+  <section class="contact-form">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/mrbknoyr" method="POST">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Brian Ochieng. All rights reserved.
+  </footer>
+
+  <script>
+    const phrases = [
+      "Data Science Student 🧠",
+      "Creative Developer 🎨",
+      "Tech Explorer 🚀",
+      "Problem Solver 🔧",
+      "Future-Focused 💼"
+    ];
+
+    let i = 0;
+    let j = 0;
+    let currentPhrase = [];
+    let isDeleting = false;
+    let isEnd = false;
+
+    function loop() {
+      const textDisplay = document.getElementById('animated-text');
+      textDisplay.innerHTML = currentPhrase.join('');
+
+      if (i < phrases.length) {
+        if (!isDeleting && j <= phrases[i].length) {
+          currentPhrase.push(phrases[i][j]);
+          j++;
+        }
+
+        if (isDeleting && j > 0) {
+          currentPhrase.pop();
+          j--;
+        }
+
+        if (j === phrases[i].length) {
+          isEnd = true;
+          isDeleting = true;
+          setTimeout(loop, 1500);
+          return;
+        }
+
+        if (isDeleting && j === 0) {
+          currentPhrase = [];
+          isDeleting = false;
+          i = (i + 1) % phrases.length;
+        }
+      }
+
+      const speed = isDeleting ? 50 : 100;
+      setTimeout(loop, speed);
+    }
+
+    loop();
+  </script>
+</body>
+</html>
