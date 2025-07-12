@@ -131,6 +131,24 @@
 </head>
 <body>
 
+  <!-- Top right corner buttons -->
+  <div style="position: absolute; top: 24px; right: 32px; display: flex; gap: 16px; z-index: 10;">
+    <!-- GitHub Icon Button -->
+    <a href="https://github.com/Brian1789" target="_blank" title="GitHub" style="background: #23272d; border-radius: 50%; padding: 8px; display: flex; align-items: center; justify-content: center;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.625-5.475 5.921.43.371.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+    </a>
+    <!-- Blog Link Button (disabled/coming soon) -->
+    <a href="#" title="Blog coming soon" style="background: #444; color: #fff; border-radius: 8px; padding: 8px 16px; text-decoration: none; font-weight: 500; display: flex; align-items: center; opacity: 0.6; cursor: not-allowed;">
+      Blog (soon)
+    </a>
+    <!-- Contact Me Button -->
+    <a href="#contact-form" title="Contact Me" style="background: #25D366; color: #fff; border-radius: 8px; padding: 8px 16px; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
+      Contact Me
+    </a>
+  </div>
+
   <header>
     <img src="profile-pic.jpg" alt="Profile" class="profile-pic" />
     <h1>Brian Ochieng</h1>
@@ -147,7 +165,7 @@
     </a>
   </header>
 
-  <section class="contact-form">
+  <section class="contact-form" id="contact-form">
     <h2>Contact Me</h2>
     <form action="https://formspree.io/f/mrbknoyr" method="POST">
       <label for="name">Your Name</label>
