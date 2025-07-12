@@ -16,9 +16,18 @@
       align-items: center;
     }
     header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+      width: 100%;
+      max-width: 800px;
+      padding: 2rem;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
     .profile-pic {
       width: 140px;
       height: 140px;
@@ -57,7 +66,7 @@
       transition: transform 0.2s ease, background-color 0.3s ease;
     }
     .button:hover, .whatsapp-button:hover {
-      background-color: #0c70d0;
+      background-color: #034d19;
       transform: scale(1.05);
     }
     .whatsapp-button svg {
@@ -120,7 +129,7 @@
 <body>
 
   <header>
-    <img src="https://i.pravatar.cc/300?img=13" alt="Profile" class="profile-pic" />
+    <img src="profile-pic.jpg" alt="Profile" class="profile-pic" />
     <h1>Brian Ochieng</h1>
     <div class="animated-text" id="animated-text"></div>
     <p>I build smart, elegant web solutions and I'm on a journey to financial freedom — one project at a time. 💡</p>
@@ -152,7 +161,15 @@
   </section>
 
   <footer>
-    &copy; 2025 Brian Ochieng. All rights reserved.
+    &copy; 2025 Brian Ochieng. All rights reserved.<br>
+    Nairobi, Kenya<br>
+    Made with <span style="color:#e25555;">&#10084;&#65039;</span> and lots of <span title="coffee">☕</span>.<br>
+    <a href="https://wa.me/254742021609" target="_blank" style="display:inline-block;vertical-align:middle;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32" style="vertical-align:middle;">
+        <path fill="#25D366" d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.259.596 4.463 1.727 6.401L3.2 28.8l6.566-1.698a12.72 12.72 0 0 0 6.235 1.597h.001c7.063 0 12.799-5.736 12.799-12.8s-5.736-12.8-12.8-12.8zm.001 23.2a10.897 10.897 0 0 1-5.503-1.505l-.393-.229-3.899 1.008 1.042-3.805-.255-.392a10.861 10.861 0 0 1-1.692-5.843c0-6.012 4.888-10.9 10.9-10.9 2.91 0 5.641 1.134 7.695 3.187s3.188 4.785 3.188 7.695c0 6.012-4.888 10.9-10.9 10.9zm6.136-8.261c-.336-.168-1.985-.98-2.294-1.092-.308-.112-.533-.168-.757.169-.224.336-.869 1.092-1.065 1.316-.196.224-.393.252-.729.084-.336-.168-1.417-.522-2.699-1.662-1-.894-1.674-1.995-1.87-2.331-.196-.336-.021-.517.147-.686.151-.15.336-.393.504-.589.168-.196.224-.336.336-.561.112-.224.056-.42-.028-.589-.084-.168-.757-1.835-1.038-2.515-.273-.656-.552-.567-.757-.577l-.646-.012c-.196 0-.514.07-.784.336s-1.03 1.005-1.03 2.451 1.055 2.841 1.202 3.041c.147.196 2.076 3.168 5.033 4.439.703.303 1.252.484 1.679.619.705.224 1.344.192 1.848.117.564-.084 1.985-.81 2.266-1.592.28-.785.28-1.46.196-1.593-.084-.133-.308-.21-.644-.379z"/>
+      </svg>
+      <span style="color:#25D366; font-weight:bold; vertical-align:middle;">WhatsApp</span>
+    </a>
   </footer>
 
   <script>
