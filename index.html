@@ -186,6 +186,42 @@
     </a>
   </footer>
 
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" style="display:none; position:fixed; bottom:24px; left:0; right:0; background:#222; color:#fff; padding:16px; text-align:center; z-index:1000;">
+    This site uses cookies to enhance your experience.
+    <button id="accept-cookies" style="margin-left:16px; background:#25D366; color:#fff; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">Accept</button>
+  </div>
+  <script>
+    // Set a cookie
+    function setCookie(name, value, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days*24*60*60*1000));
+      document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+    }
+    // Get a cookie
+    function getCookie(name) {
+      const cname = name + "=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const ca = decodedCookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(cname) == 0) return c.substring(cname.length, c.length);
+      }
+      return "";
+    }
+    // Show banner if not accepted
+    window.onload = function() {
+      if (!getCookie("cookiesAccepted")) {
+        document.getElementById("cookie-banner").style.display = "block";
+      }
+      document.getElementById("accept-cookies").onclick = function() {
+        setCookie("cookiesAccepted", "yes", 365);
+        document.getElementById("cookie-banner").style.display = "none";
+      }
+    }
+  </script>
+
   <script>
     const phrases = [
       "Data Science Student 🧠",
