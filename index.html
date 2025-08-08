@@ -5,11 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Brian Ochieng - Portfolio</title>
   <style>
+    :root {
+      --bg: #121212;
+      --text: #ffffff;
+      --card-bg: #1a1a1a;
+      --muted: #cccccc;
+      --muted-2: #aaaaaa;
+      --input-bg: #2a2a2a;
+      --primary: #1e90ff;
+      --primary-hover: #0c70d0;
+      --accent: #25D366;
+      --shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --text: #111111;
+      --card-bg: #f5f7fb;
+      --muted: #555555;
+      --muted-2: #666666;
+      --input-bg: #ffffff;
+      --primary: #1e90ff;
+      --primary-hover: #0c70d0;
+      --accent: #25D366;
+      --shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #121212;
-      color: #ffffff;
+      background-color: var(--bg);
+      color: var(--text);
       padding: 2rem;
       display: flex;
       flex-direction: column;
@@ -19,31 +45,31 @@
       width: 100%;
       max-width: 800px;
       padding: 2rem;
-      background-color: #1a1a1a;
+      background-color: var(--card-bg);
       border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       margin-bottom: 2rem;
-}
+    }
     .profile-pic {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #1e90ff;
+      border: 4px solid var(--primary);
       margin-bottom: 1rem;
     }
     h1 {
-      color: #1e90ff;
+      color: var(--primary);
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
     }
     .animated-text {
       font-size: 1.2rem;
-      color: #ccc;
+      color: var(--muted);
       height: 24px;
       margin-bottom: 1rem;
     }
@@ -59,14 +85,14 @@
       justify-content: center;
       padding: 12px 24px;
       margin-top: 1rem;
-      background-color: #1e90ff;
-      color: white;
+      background-color: var(--primary);
+      color: #ffffff;
       text-decoration: none;
       border-radius: 8px;
       transition: transform 0.2s ease, background-color 0.3s ease;
     }
     .button:hover, .whatsapp-button:hover {
-      background-color: #25D366; /* Changed to WhatsApp green */
+      background-color: var(--accent);
       transform: scale(1.05);
     }
     .whatsapp-button svg {
@@ -78,17 +104,17 @@
 
     /* Contact Form */
     .contact-form {
-      background: #1a1a1a;
+      background: var(--card-bg);
       padding: 2rem;
       border-radius: 10px;
       max-width: 500px;
       width: 100%;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      box-shadow: var(--shadow);
       margin-top: 3rem;
     }
     .contact-form h2 {
       margin-bottom: 1rem;
-      color: #1e90ff;
+      color: var(--primary);
     }
     .contact-form label {
       display: block;
@@ -101,11 +127,11 @@
       border: none;
       border-radius: 5px;
       margin-bottom: 1rem;
-      background: #2a2a2a;
-      color: white;
+      background: var(--input-bg);
+      color: var(--text);
     }
     .contact-form button {
-      background-color: #1e90ff;
+      background-color: var(--primary);
       border: none;
       padding: 10px 20px;
       border-radius: 5px;
@@ -114,7 +140,7 @@
       transition: background-color 0.3s, transform 0.2s;
     }
     .contact-form button:hover {
-      background-color: #0c70d0;
+      background-color: var(--primary-hover);
       transform: scale(1.05);
     }
 
@@ -122,7 +148,7 @@
       text-align: center;
       margin-top: 4rem;
       font-size: 0.9rem;
-      color: #aaa;
+      color: var(--muted-2);
     }
   </style>
 </head>
@@ -140,6 +166,10 @@
     <a href="#contact-form" title="Contact Me" style="background: #25D366; color: #fff; border-radius: 8px; padding: 8px 16px; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
       Contact Me
     </a>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" title="Toggle theme" style="background: #23272d; color: #fff; border: none; border-radius: 8px; padding: 8px 12px; cursor: pointer; font-weight: 500;">
+      🌙 Dark
+    </button>
   </div>
 
   <header>
@@ -155,6 +185,19 @@
       Chat on WhatsApp
     </a>
   </header>
+
+  <!-- Resume Section -->
+  <section class="contact-form" id="resume">
+    <h2>Resume</h2>
+    <div class="resume-viewer" style="height: 600px; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); background: var(--card-bg);">
+      <iframe src="https://drive.google.com/file/d/1TOmSrScH01Size8lD6u9ZRMViA_fXsAU/preview" style="width: 100%; height: 100%; border: 0;" allow="autoplay"></iframe>
+    </div>
+    <div style="display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap;">
+      <a class="button" href="https://drive.google.com/uc?export=download&id=1TOmSrScH01Size8lD6u9ZRMViA_fXsAU" target="_blank" rel="noopener">Download PDF</a>
+      <a class="button" href="https://drive.google.com/file/d/1TOmSrScH01Size8lD6u9ZRMViA_fXsAU/view?usp=drivesdk" target="_blank" rel="noopener">Open in Drive</a>
+    </div>
+    <p style="font-size: 0.9rem; color: var(--muted); margin-top: 8px;">If the preview doesn’t load, use the buttons above.</p>
+  </section>
 
   <section class="contact-form" id="contact-form">
     <h2>Contact Me</h2>
@@ -269,6 +312,35 @@
     }
 
     loop();
+  </script>
+
+  <script>
+    // Theme toggle with persistence
+    (function() {
+      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      const savedTheme = localStorage.getItem('theme');
+      const initialTheme = savedTheme || (prefersLight ? 'light' : 'dark');
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        const toggle = document.getElementById('theme-toggle');
+        if (toggle) {
+          toggle.textContent = theme === 'light' ? '☀️ Light' : '🌙 Dark';
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', function() {
+        applyTheme(initialTheme);
+        const toggle = document.getElementById('theme-toggle');
+        if (toggle) {
+          toggle.addEventListener('click', function() {
+            const current = document.documentElement.getAttribute('data-theme') || initialTheme;
+            applyTheme(current === 'light' ? 'dark' : 'light');
+          });
+        }
+      });
+    })();
   </script>
 </body>
 </html>
