@@ -170,6 +170,125 @@
       height: 26px;
       fill: currentColor;
     }
+    
+    /* Demos section */
+    .section-title {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 1rem;
+      text-align: center;
+      color: var(--accent);
+    }
+    .demos {
+      width: 100%;
+      max-width: 1000px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 2rem;
+    }
+    .demos-intro {
+      text-align: center;
+      color: var(--muted-text);
+      margin-bottom: 1.5rem;
+    }
+    .demos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .demo-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .demo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      border-color: rgba(30,144,255,0.4);
+    }
+    .demo-media {
+      height: 140px;
+      border-radius: 10px;
+      background: conic-gradient(from 180deg at 50% 50%, rgba(30,144,255,0.15), rgba(255,255,255,0.04), rgba(30,144,255,0.15));
+      border: 1px dashed rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted-text);
+      margin-bottom: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .demo-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px 120px at 10% 10%, rgba(30,144,255,0.12), transparent 40%),
+                  radial-gradient(600px 120px at 90% 90%, rgba(255,255,255,0.06), transparent 40%);
+      pointer-events: none;
+    }
+    .demo-card h3 {
+      margin: 0.25rem 0 0.35rem;
+    }
+    .demo-card p {
+      margin: 0 0 0.75rem;
+      color: var(--muted-text);
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 0.9rem;
+    }
+    .tags span {
+      background: var(--chip-bg);
+      color: var(--text);
+      font-size: 0.85rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .demo-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .button.secondary:hover {
+      background: rgba(30,144,255,0.12);
+    }
+    .more-link {
+      text-align: center;
+      margin-top: 1.25rem;
+    }
+    .ghost-link {
+      color: var(--muted-text);
+      text-decoration: none;
+      position: relative;
+    }
+    .ghost-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(30,144,255,0.0), var(--accent), rgba(30,144,255,0.0));
+      opacity: 0.6;
+      transition: opacity 0.2s ease;
+    }
+    .ghost-link:hover::after {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -208,6 +327,30 @@
     </a>
   </header>
 
+  <section id="demos" class="demos">
+    <h2 class="section-title">Code Live Demos</h2>
+    <p class="demos-intro">Jump into interactive examples and source code. Here's a featured project:</p>
+    <div class="demos-grid">
+      <article class="demo-card">
+        <div class="demo-media" aria-hidden="true">CSS Art Gallery</div>
+        <h3>CSS Art Gallery</h3>
+        <p>Pure CSS artworks, patterns, and micro-interactions for inspiration and reuse.</p>
+        <div class="tags">
+          <span>CSS</span>
+          <span>Art</span>
+          <span>Animations</span>
+        </div>
+        <div class="demo-actions">
+          <a class="button secondary" href="https://brian1789.github.io/CSS-ART-GALLERY/" target="_blank" rel="noopener">Live Demo</a>
+          <a class="button" href="https://github.com/Brian1789/CSS-ART-GALLERY" target="_blank" rel="noopener">View Repository</a>
+        </div>
+      </article>
+    </div>
+    <div class="more-link">
+      <a class="ghost-link" href="https://github.com/Brian1789" target="_blank" rel="noopener">Explore all repositories →</a>
+    </div>
+  </section>
+
   <section class="contact-form" id="contact-form">
     <h2>Contact Me</h2>
     <form action="https://formspree.io/f/mqalgvkr" method="POST">
@@ -234,6 +377,9 @@
       </svg>
       <span style="color:#25D366; font-weight:bold; vertical-align:middle;">WhatsApp</span>
     </a>
+    <div style="margin-top: 10px;">
+      <a href="https://github.com/Brian1789" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">Explore my GitHub for more templates →</a>
+    </div>
   </footer>
 
   <!-- Cookie Consent Banner -->
