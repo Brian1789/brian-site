@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brian Ochieng - Portfolio</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --text: #ffffff;
+      --muted-text: #cccccc;
+      --footer-text: #aaaaaa;
+      --card-bg: #1a1a1a;
+      --input-bg: #2a2a2a;
+      --accent: #1e90ff;
+      --chip-bg: #23272d;
+      --icon-fill: #ffffff;
+      --shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    /* Light theme overrides */
+    .light-theme {
+      --bg: #f7f8fa;
+      --text: #111111;
+      --muted-text: #555555;
+      --footer-text: #555555;
+      --card-bg: #ffffff;
+      --input-bg: #f1f3f5;
+      --accent: #1e90ff;
+      --chip-bg: #e9ecef;
+      --icon-fill: #111111;
+      --shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      width: 100%;
+      max-width: 800px;
+      padding: 2rem;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      color: var(--accent);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .animated-text {
+      font-size: 1.2rem;
+      color: var(--muted-text);
+      height: 24px;
+      margin-bottom: 1rem;
+    }
+    p {
+      max-width: 600px;
+      margin: 0 auto 1rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .button, .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      margin-top: 1rem;
+      background-color: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+    .button:hover, .whatsapp-button:hover {
+      background-color: #25D366; /* WhatsApp green on hover */
+      transform: scale(1.05);
+    }
+    .whatsapp-button svg {
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: var(--shadow);
+      margin-top: 3rem;
+    }
+    .contact-form h2 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .contact-form label {
+      display: block;
+      margin: 0.5rem 0 0.3rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      background: var(--input-bg);
+      color: var(--text);
+    }
+    .contact-form button {
+      background-color: var(--accent);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .contact-form button:hover {
+      background-color: #0c70d0;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: var(--footer-text);
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      background: var(--chip-bg);
+      border-radius: 50%;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      box-shadow: none;
+      color: var(--icon-fill);
+    }
+    .theme-toggle svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top right corner buttons -->
+  <div style="position: absolute; top: 24px; right: 32px; display: flex; gap: 16px; z-index: 10;">
+    <!-- GitHub Icon Button -->
+    <a href="https://github.com/Brian1789" target="_blank" title="GitHub" style="background: var(--chip-bg); border-radius: 50%; padding: 8px; display: flex; align-items: center; justify-content: center; color: var(--icon-fill);">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.625-5.475 5.921.43.371.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+    </a>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme"></button>
+    <!-- Contact Me Button -->
+    <a href="#contact-form" title="Contact Me" style="background: #25D366; color: #fff; border-radius: 8px; padding: 8px 16px; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
+      Contact Me
+    </a>
+  </div>
+
+  <header>
+    <img src="profile-pic.jpg" alt="Profile" class="profile-pic" />
+    <h1>Brian Ochieng</h1>
+    <div class="animated-text" id="animated-text"></div>
+    <p>I build smart, elegant web solutions and I'm on a journey to financial freedom — one project at a time. 💡</p>
+
+    <a href="https://wa.me/254742021609" class="whatsapp-button" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <path d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.259.596 4.463 1.727 6.401L3.2 28.8l6.566-1.698a12.72 12.72 0 0 0 6.235 1.597h.001c7.063 0 12.799-5.736 12.799-12.8s-5.736-12.8-12.8-12.8zm.001 23.2a10.897 10.897 0 0 1-5.503-1.505l-.393-.229-3.899 1.008 1.042-3.805-.255-.392a10.861 10.861 0 0 1-1.692-5.843c0-6.012 4.888-10.9 10.9-10.9 2.91 0 5.641 1.134 7.695 3.187s3.188 4.785 3.188 7.695c0 6.012-4.888 10.9-10.9 10.9zm6.136-8.261c-.336-.168-1.985-.98-2.294-1.092-.308-.112-.533-.168-.757.169-.224.336-.869 1.092-1.065 1.316-.196.224-.393.252-.729.084-.336-.168-1.417-.522-2.699-1.662-1-.894-1.674-1.995-1.87-2.331-.196-.336-.021-.517.147-.686.151-.15.336-.393.504-.589.168-.196.224-.336.336-.561.112-.224.056-.42-.028-.589-.084-.168-.757-1.835-1.038-2.515-.273-.656-.552-.567-.757-.577l-.646-.012c-.196 0-.514.07-.784.336s-1.03 1.005-1.03 2.451 1.055 2.841 1.202 3.041c.147.196 2.076 3.168 5.033 4.439.703.303 1.252.484 1.679.619.705.224 1.344.192 1.848.117.564-.084 1.985-.81 2.266-1.592.28-.785.28-1.46.196-1.593-.084-.133-.308-.21-.644-.379z"/>
+      </svg>
+      Chat on WhatsApp
+    </a>
+    <!-- Download Resume Button -->
+    <a href="https://drive.google.com/uc?export=download&id=1TOmSrScH01Size8lD6u9ZRMViA_fXsAU" class="button" target="_blank" rel="noopener">
+      Download Resume
+    </a>
+  </header>
+
+  <section class="contact-form" id="contact-form">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/mqalgvkr" method="POST">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Brian Ochieng. All rights reserved.<br>
+    Nairobi, Kenya<br>
+    Made with <span style="color:#e25555;">&#10084;&#65039;</span> and lots of <span title="coffee">☕</span>.<br>
+    <a href="https://wa.me/254742021609" target="_blank" style="display:inline-block;vertical-align:middle;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32" style="vertical-align:middle;">
+        <path fill="#25D366" d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.259.596 4.463 1.727 6.401L3.2 28.8l6.566-1.698a12.72 12.72 0 0 0 6.235 1.597h.001c7.063 0 12.799-5.736 12.799-12.8s-5.736-12.8-12.8-12.8zm.001 23.2a10.897 10.897 0 0 1-5.503-1.505l-.393-.229-3.899 1.008 1.042-3.805-.255-.392a10.861 10.861 0 0 1-1.692-5.843c0-6.012 4.888-10.9 10.9-10.9 2.91 0 5.641 1.134 7.695 3.187s3.188 4.785 3.188 7.695c0 6.012-4.888 10.9-10.9 10.9zm6.136-8.261c-.336-.168-1.985-.98-2.294-1.092-.308-.112-.533-.168-.757.169-.224.336-.869 1.092-1.065 1.316-.196.224-.393.252-.729.084-.336-.168-1.417-.522-2.699-1.662-1-.894-1.674-1.995-1.87-2.331-.196-.336-.021-.517.147-.686.151-.15.336-.393.504-.589.168-.196.224-.336.336-.561.112-.224.056-.42-.028-.589-.084-.168-.757-1.835-1.038-2.515-.273-.656-.552-.567-.757-.577l-.646-.012c-.196 0-.514.07-.784.336s-1.03 1.005-1.03 2.451 1.055 2.841 1.202 3.041c.147.196 2.076 3.168 5.033 4.439.703.303 1.252.484 1.679.619.705.224 1.344.192 1.848.117.564-.084 1.985-.81 2.266-1.592.28-.785.28-1.46.196-1.593-.084-.133-.308-.21-.644-.379z"/>
+      </svg>
+      <span style="color:#25D366; font-weight:bold; vertical-align:middle;">WhatsApp</span>
+    </a>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" style="display:none; position:fixed; bottom:24px; left:0; right:0; background: var(--card-bg); color: var(--text); padding:16px; text-align:center; z-index:1000; box-shadow: var(--shadow);">
+    This site uses cookies to enhance your experience.
+    <button id="accept-cookies" style="margin-left:16px; background:#25D366; color:#fff; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">Accept</button>
+  </div>
+  <script>
+    // Set a cookie
+    function setCookie(name, value, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days*24*60*60*1000));
+      document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+    }
+    // Get a cookie
+    function getCookie(name) {
+      const cname = name + "=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const ca = decodedCookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(cname) == 0) return c.substring(cname.length, c.length);
+      }
+      return "";
+    }
+    // Show banner if not accepted
+    window.addEventListener('load', function() {
+      if (!getCookie("cookiesAccepted")) {
+        document.getElementById("cookie-banner").style.display = "block";
+      }
+      document.getElementById("accept-cookies").onclick = function() {
+        setCookie("cookiesAccepted", "yes", 365);
+        document.getElementById("cookie-banner").style.display = "none";
+      }
+    });
+  </script>
+
+  <!-- Theme toggle script -->
+  <script>
+    (function () {
+      const THEME_KEY = 'preferredTheme';
+      const body = document.body;
+      const toggleBtn = document.getElementById('theme-toggle');
+
+      function getPreferredTheme() {
+        return localStorage.getItem(THEME_KEY) || 'dark';
+      }
+      function updateToggleIcon(theme) {
+        if (!toggleBtn) return;
+        if (theme === 'light') {
+          // Show moon icon (suggests switching to dark)
+          toggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+        } else {
+          // Show sun icon (suggests switching to light)
+          toggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zm10.48 0l1.79-1.8 1.41 1.41-1.8 1.79-1.4-1.4zM12 4V1h-2v3h2zm6 8h3v-2h-3v2zM4 12H1v-2h3v2zm8 8v3h-2v-3h2zm7.24-2.84l1.8 1.79-1.41 1.41-1.79-1.8 1.4-1.4zM4.22 17.76l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM12 6a6 6 0 100 12A6 6 0 0012 6z"/></svg>';
+        }
+      }
+      function applyTheme(theme) {
+        if (theme === 'light') {
+          body.classList.add('light-theme');
+        } else {
+          body.classList.remove('light-theme');
+        }
+        localStorage.setItem(THEME_KEY, theme);
+        updateToggleIcon(theme);
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const saved = getPreferredTheme();
+        applyTheme(saved);
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', function () {
+            const next = body.classList.contains('light-theme') ? 'dark' : 'light';
+            applyTheme(next);
+          });
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    const phrases = [
+      "Data Science Student 🧠",
+      "Creative Developer 🎨",
+      "Tech Explorer 🚀",
+      "Problem Solver 🔧",
+      "Future-Focused 💼"
+    ];
+
+    let i = 0;
+    let j = 0;
+    let currentPhrase = [];
+    let isDeleting = false;
+    let isEnd = false;
+
+    function loop() {
+      const textDisplay = document.getElementById('animated-text');
+      textDisplay.innerHTML = currentPhrase.join('');
+
+      if (i < phrases.length) {
+        if (!isDeleting && j <= phrases[i].length) {
+          currentPhrase.push(phrases[i][j]);
+          j++;
+        }
+
+        if (isDeleting && j > 0) {
+          currentPhrase.pop();
+          j--;
+        }
+
+        if (j === phrases[i].length) {
+          isEnd = true;
+          isDeleting = true;
+          setTimeout(loop, 1500);
+          return;
+        }
+
+        if (isDeleting && j === 0) {
+          currentPhrase = [];
+          isDeleting = false;
+          i = (i + 1) % phrases.length;
+        }
+      }
+
+      const speed = isDeleting ? 50 : 100;
+      setTimeout(loop, speed);
+    }
+
+    loop();
+  </script>
+</body>
+</html>
