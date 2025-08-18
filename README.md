@@ -16,5 +16,3 @@ Welcome to my personal portfolio! This site showcases my web development project
 - SEO-optimized structure
 - Clean, modern layout
 - Interactive elements
-
-## 📂 Folder Structure
