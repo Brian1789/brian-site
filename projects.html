@@ -182,7 +182,6 @@
       const specialProjects = {
         'CSS-ART-GALLERY': 'https://brian1789.github.io/CSS-ART-GALLERY/',
         'portfolio_generator': 'https://brian1789.github.io/portfolio_generator/',
-        'algoritm-visualizer': 'https://brian1789.github.io/algoritm-visualizer/',
         'weather-app': 'https://brian1789.github.io/weather-app/'
       };
 
@@ -190,6 +189,7 @@
         .then(response => response.json())
         .then(repos => {
           repos.forEach(repo => {
+            if (repo.name === 'algoritm-visualizer') return;
             const card = document.createElement('div');
             card.className = 'project-card';
 
