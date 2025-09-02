@@ -170,6 +170,23 @@
       height: 26px;
       fill: currentColor;
     }
+
+    .glow-button {
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px rgba(30, 144, 255, 0);
+    }
+    .glow-button:hover {
+      box-shadow: 0 0 20px rgba(30, 144, 255, 0.8);
+      transform: scale(1.05);
+    }
     
     /* Demos section */
     .section-title {
@@ -303,6 +320,8 @@
     </a>
     <!-- Theme Toggle Button -->
     <button id="theme-toggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme"></button>
+    <!-- Projects Button -->
+    <a href="projects.html" title="Projects" class="glow-button">Projects</a>
     <!-- Contact Me Button -->
     <a href="#contact-form" title="Contact Me" style="background: #25D366; color: #fff; border-radius: 8px; padding: 8px 16px; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
       Contact Me
