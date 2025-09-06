@@ -4,37 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Brian Ochieng - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #121212;
-      --text: #ffffff;
-      --muted-text: #cccccc;
-      --footer-text: #aaaaaa;
+      --bg: #0a0a0a;
+      --text: #f0f0f0;
+      --muted-text: #a0a0a0;
+      --footer-text: #888888;
       --card-bg: #1a1a1a;
-      --input-bg: #2a2a2a;
-      --accent: #1e90ff;
-      --chip-bg: #23272d;
-      --icon-fill: #ffffff;
-      --shadow: 0 0 10px rgba(0,0,0,0.3);
+      --input-bg: #222222;
+      --accent: #007BFF;
+      --chip-bg: #2c2c2c;
+      --icon-fill: #f0f0f0;
+      --shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
 
     /* Light theme overrides */
     .light-theme {
-      --bg: #f7f8fa;
-      --text: #111111;
+      --bg: #ffffff;
+      --text: #1a1a1a;
       --muted-text: #555555;
-      --footer-text: #555555;
-      --card-bg: #ffffff;
-      --input-bg: #f1f3f5;
-      --accent: #1e90ff;
-      --chip-bg: #e9ecef;
-      --icon-fill: #111111;
-      --shadow: 0 2px 16px rgba(0,0,0,0.08);
+      --footer-text: #666666;
+      --card-bg: #f7f7f7;
+      --input-bg: #eeeeee;
+      --accent: #007BFF;
+      --chip-bg: #e0e0e0;
+      --icon-fill: #1a1a1a;
+      --shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       padding: 2rem;
@@ -63,38 +66,45 @@
       border: 4px solid var(--accent);
       margin-bottom: 1rem;
     }
+    h1, .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+    }
     h1 {
-      color: var(--accent);
-      font-size: 2.5rem;
+      color: var(--text);
+      font-size: 3rem;
       margin-bottom: 0.5rem;
     }
     .animated-text {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: var(--muted-text);
-      height: 24px;
-      margin-bottom: 1rem;
+      height: 28px;
+      margin-bottom: 1.5rem;
     }
     p {
       max-width: 600px;
-      margin: 0 auto 1rem;
+      margin: 0 auto 1.5rem;
       font-size: 1.1rem;
-      line-height: 1.6;
+      line-height: 1.7;
     }
     .button, .whatsapp-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 24px;
+      padding: 14px 28px;
       margin-top: 1rem;
       background-color: var(--accent);
       color: white;
       text-decoration: none;
       border-radius: 8px;
       transition: transform 0.2s ease, background-color 0.3s ease;
+      font-weight: 500;
+    }
+    .whatsapp-button {
+      background-color: #25D366;
     }
     .button:hover, .whatsapp-button:hover {
-      background-color: #25D366; /* WhatsApp green on hover */
       transform: scale(1.05);
+      filter: brightness(1.1);
     }
     .whatsapp-button svg {
       margin-right: 8px;
@@ -306,12 +316,131 @@
     .ghost-link:hover::after {
       opacity: 1;
     }
+
+    /* About Me Section */
+    .about-me {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* Skills Section */
+    .skills {
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .skill {
+      width: 100%;
+      max-width: 350px;
+    }
+    .skill-name {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .skill-bar {
+      width: 100%;
+      background-color: var(--input-bg);
+      border-radius: 5px;
+      height: 10px;
+    }
+    .skill-percentage {
+      height: 100%;
+      background-color: var(--accent);
+      border-radius: 5px;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      width: 100%;
+      max-width: 1200px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-color: rgba(30,144,255,0.5);
+    }
+    .project-card h3 {
+      margin: 0 0 0.5rem;
+      color: var(--accent);
+    }
+    .project-card p {
+      margin: 0 0 1rem;
+      color: var(--muted-text);
+      flex-grow: 1;
+    }
+    .project-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .project-button {
+      display: inline-block;
+      padding: 10px 18px;
+      background-color: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+      border: 1px solid var(--accent);
+    }
+    .project-button:hover {
+      background-color: #0c70d0;
+      transform: scale(1.05);
+    }
+    .project-button.secondary {
+      background: transparent;
+    }
+    .project-button.secondary:hover {
+      background: rgba(30,144,255,0.12);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      header {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      .header-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .top-right-buttons {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Top right corner buttons -->
-  <div style="position: absolute; top: 24px; right: 32px; display: flex; gap: 16px; z-index: 10;">
+  <div class="top-right-buttons" style="position: absolute; top: 24px; right: 32px; display: flex; gap: 16px; z-index: 10;">
     <!-- GitHub Icon Button -->
     <a href="https://github.com/Brian1789" target="_blank" title="GitHub" style="background: var(--chip-bg); border-radius: 50%; padding: 8px; display: flex; align-items: center; justify-content: center; color: var(--icon-fill);">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -321,7 +450,6 @@
     <!-- Theme Toggle Button -->
     <button id="theme-toggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme"></button>
     <!-- Projects Button -->
-    <a href="projects.html" title="Projects" class="glow-button">Projects</a>
     <!-- Contact Me Button -->
     <a href="#contact-form" title="Contact Me" style="background: #25D366; color: #fff; border-radius: 8px; padding: 8px 16px; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
       Contact Me
@@ -333,40 +461,60 @@
     <h1>Brian Ochieng</h1>
     <div class="animated-text" id="animated-text"></div>
     <p>I build smart, elegant web solutions and I'm on a journey to financial freedom — one project at a time. 💡</p>
-
-    <a href="https://wa.me/254742021609" class="whatsapp-button" target="_blank">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-        <path d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.259.596 4.463 1.727 6.401L3.2 28.8l6.566-1.698a12.72 12.72 0 0 0 6.235 1.597h.001c7.063 0 12.799-5.736 12.799-12.8s-5.736-12.8-12.8-12.8zm.001 23.2a10.897 10.897 0 0 1-5.503-1.505l-.393-.229-3.899 1.008 1.042-3.805-.255-.392a10.861 10.861 0 0 1-1.692-5.843c0-6.012 4.888-10.9 10.9-10.9 2.91 0 5.641 1.134 7.695 3.187s3.188 4.785 3.188 7.695c0 6.012-4.888 10.9-10.9 10.9zm6.136-8.261c-.336-.168-1.985-.98-2.294-1.092-.308-.112-.533-.168-.757.169-.224.336-.869 1.092-1.065 1.316-.196.224-.393.252-.729.084-.336-.168-1.417-.522-2.699-1.662-1-.894-1.674-1.995-1.87-2.331-.196-.336-.021-.517.147-.686.151-.15.336-.393.504-.589.168-.196.224-.336.336-.561.112-.224.056-.42-.028-.589-.084-.168-.757-1.835-1.038-2.515-.273-.656-.552-.567-.757-.577l-.646-.012c-.196 0-.514.07-.784.336s-1.03 1.005-1.03 2.451 1.055 2.841 1.202 3.041c.147.196 2.076 3.168 5.033 4.439.703.303 1.252.484 1.679.619.705.224 1.344.192 1.848.117.564-.084 1.985-.81 2.266-1.592.28-.785.28-1.46.196-1.593-.084-.133-.308-.21-.644-.379z"/>
-      </svg>
-      Chat on WhatsApp
-    </a>
-    <!-- Download Resume Button -->
-    <a href="https://drive.google.com/uc?export=download&id=1TOmSrScH01Size8lD6u9ZRMViA_fXsAU" class="button" target="_blank" rel="noopener">
-      Download Resume
-    </a>
+    <div class="header-buttons">
+      <a href="https://wa.me/254742021609" class="whatsapp-button" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+          <path d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.259.596 4.463 1.727 6.401L3.2 28.8l6.566-1.698a12.72 12.72 0 0 0 6.235 1.597h.001c7.063 0 12.799-5.736 12.799-12.8s-5.736-12.8-12.8-12.8zm.001 23.2a10.897 10.897 0 0 1-5.503-1.505l-.393-.229-3.899 1.008 1.042-3.805-.255-.392a10.861 10.861 0 0 1-1.692-5.843c0-6.012 4.888-10.9 10.9-10.9 2.91 0 5.641 1.134 7.695 3.187s3.188 4.785 3.188 7.695c0 6.012-4.888 10.9-10.9 10.9zm6.136-8.261c-.336-.168-1.985-.98-2.294-1.092-.308-.112-.533-.168-.757.169-.224.336-.869 1.092-1.065 1.316-.196.224-.393.252-.729.084-.336-.168-1.417-.522-2.699-1.662-1-.894-1.674-1.995-1.87-2.331-.196-.336-.021-.517.147-.686.151-.15.336-.393.504-.589.168-.196.224-.336.336-.561.112-.224.056-.42-.028-.589-.084-.168-.757-1.835-1.038-2.515-.273-.656-.552-.567-.757-.577l-.646-.012c-.196 0-.514.07-.784.336s-1.03 1.005-1.03 2.451 1.055 2.841 1.202 3.041c.147.196 2.076 3.168 5.033 4.439.703.303 1.252.484 1.679.619.705.224 1.344.192 1.848.117.564-.084 1.985-.81 2.266-1.592.28-.785.28-1.46.196-1.593-.084-.133-.308-.21-.644-.379z"/>
+        </svg>
+        Chat on WhatsApp
+      </a>
+      <a href="https://drive.google.com/uc?export=download&id=1TOmSrScH01Size8lD6u9ZRMViA_fXsAU" class="button" target="_blank" rel="noopener">
+        Download Resume
+      </a>
+    </div>
   </header>
 
-  <section id="demos" class="demos">
-    <h2 class="section-title">Code Live Demos</h2>
-    <p class="demos-intro">Jump into interactive examples and source code. Here's a featured project:</p>
-    <div class="demos-grid">
-      <article class="demo-card">
-        <div class="demo-media" aria-hidden="true">CSS Art Gallery</div>
-        <h3>CSS Art Gallery</h3>
-        <p>Pure CSS artworks, patterns, and micro-interactions for inspiration and reuse.</p>
-        <div class="tags">
-          <span>CSS</span>
-          <span>Art</span>
-          <span>Animations</span>
+  <section id="about" class="about-me">
+    <h2 class="section-title">About Me</h2>
+    <p>
+      I am a passionate web developer with a knack for creating smart, elegant solutions. My journey in tech is driven by a desire for continuous learning and financial freedom. I specialize in front-end development and am expanding my skills in back-end technologies.
+    </p>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-container">
+      <div class="skill">
+        <div class="skill-name">HTML</div>
+        <div class="skill-bar">
+          <div class="skill-percentage" style="width: 85%;"></div>
         </div>
-        <div class="demo-actions">
-          <a class="button secondary" href="https://brian1789.github.io/CSS-ART-GALLERY/" target="_blank" rel="noopener">Live Demo</a>
-          <a class="button" href="https://github.com/Brian1789/CSS-ART-GALLERY" target="_blank" rel="noopener">View Repository</a>
+      </div>
+      <div class="skill">
+        <div class="skill-name">CSS</div>
+        <div class="skill-bar">
+          <div class="skill-percentage" style="width: 80%;"></div>
         </div>
-      </article>
+      </div>
+      <div class="skill">
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-bar">
+          <div class="skill-percentage" style="width: 80%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Node.js</div>
+        <div class="skill-bar">
+          <div class="skill-percentage" style="width: 50%;"></div>
+        </div>
+      </div>
     </div>
-    <div class="more-link">
-      <a class="ghost-link" href="https://github.com/Brian1789" target="_blank" rel="noopener">Explore all repositories →</a>
+  </section>
+
+  <section id="projects" class="projects-section">
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-grid" id="projects-grid">
+      <!-- Projects will be loaded here by JavaScript -->
     </div>
   </section>
 
@@ -529,6 +677,64 @@
     }
 
     loop();
+  </script>
+
+  <!-- Projects script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const projectsGrid = document.getElementById('projects-grid');
+      const specialProjects = {
+        'CSS-ART-GALLERY': 'https://brian1789.github.io/CSS-ART-GALLERY/',
+        'portfolio_generator': 'https://brian1789.github.io/portfolio_generator/',
+        'weather-app': 'https://brian1789.github.io/weather-app/',
+        'algorithm-visualizer': 'https://brian1789.github.io/algorithm-visualizer/'
+      };
+
+      fetch('https://api.github.com/users/Brian1789/repos?sort=updated')
+        .then(response => response.json())
+        .then(repos => {
+          repos.forEach(repo => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+
+            const name = document.createElement('h3');
+            name.textContent = repo.name.replace(/[-_]/g, ' ');
+
+            const description = document.createElement('p');
+            description.textContent = repo.description || 'No description available.';
+
+            const actions = document.createElement('div');
+            actions.className = 'project-actions';
+
+            const repoButton = document.createElement('a');
+            repoButton.href = repo.html_url;
+            repoButton.textContent = 'View Repository';
+            repoButton.className = 'project-button';
+            repoButton.target = '_blank';
+
+            if (specialProjects[repo.name]) {
+              const demoButton = document.createElement('a');
+              demoButton.href = specialProjects[repo.name];
+              demoButton.textContent = 'Live Demo';
+              demoButton.className = 'project-button secondary';
+              demoButton.target = '_blank';
+              actions.appendChild(demoButton);
+            }
+
+            actions.appendChild(repoButton);
+
+            card.appendChild(name);
+            card.appendChild(description);
+            card.appendChild(actions);
+
+            projectsGrid.appendChild(card);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching repositories:', error);
+          projectsGrid.innerHTML = '<p>Could not load projects. Please try again later.</p>';
+        });
+    });
   </script>
 </body>
 </html>
