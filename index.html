@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brian Ochieng - Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
   <style>
     :root {
+      --bg: #ffffff;
+      --text: #002366;
+      --muted-text: #666666;
+      --footer-text: #888888;
+      --card-bg: #ffffff;
+      --input-bg: #f8f9fa;
+      --accent: #002366;
+      --secondary: #C08091;
+      --chip-bg: #f1f3f4;
+      --icon-fill: #002366;
+      --shadow: 0 2px 10px rgba(0, 35, 102, 0.1);
+      --border: #e1e5e9;
+    }
+
+    /* Dark theme overrides */
+    .dark-theme {
       --bg: #0a0a0a;
       --text: #f0f0f0;
       --muted-text: #a0a0a0;
       --footer-text: #888888;
       --card-bg: #1a1a1a;
       --input-bg: #222222;
-      --accent: #007BFF;
+      --accent: #C08091;
+      --secondary: #002366;
       --chip-bg: #2c2c2c;
       --icon-fill: #f0f0f0;
-      --shadow: 0 4px 20px rgba(0,0,0,0.4);
-    }
-
-    /* Light theme overrides */
-    .light-theme {
-      --bg: #ffffff;
-      --text: #1a1a1a;
-      --muted-text: #555555;
-      --footer-text: #666666;
-      --card-bg: #f7f7f7;
-      --input-bg: #eeeeee;
-      --accent: #007BFF;
-      --chip-bg: #e0e0e0;
-      --icon-fill: #1a1a1a;
-      --shadow: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      --border: #333333;
     }
 
     body {
@@ -40,144 +47,313 @@
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      padding: 2rem;
+      line-height: 1.6;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    /* Button icons */
+    .btn-icon {
+      background: var(--chip-bg);
+      border-radius: 50%;
+      padding: 10px;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--icon-fill);
+      text-decoration: none;
+      border: 2px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .btn-icon:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .dark-theme nav {
+      background: rgba(26, 26, 26, 0.95);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 1rem;
       align-items: center;
     }
-    header {
-      width: 100%;
-      max-width: 800px;
-      padding: 2rem;
-      background-color: var(--card-bg);
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+
+    /* Main content */
+    main {
+      margin-top: 70px;
+    }
+
+    /* Hero section */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
       text-align: center;
-      margin-bottom: 2rem;
     }
+
     .profile-pic {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
     }
-    h1, .section-title {
+
+    h1,
+    .section-title {
       font-family: 'Space Grotesk', sans-serif;
     }
-    h1 {
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
       color: var(--text);
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+      margin: 0 0 1rem;
+      line-height: 1.1;
     }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      color: var(--muted-text);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+
     .animated-text {
       font-size: 1.25rem;
-      color: var(--muted-text);
+      color: var(--secondary);
       height: 28px;
       margin-bottom: 1.5rem;
     }
-    p {
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
-      font-size: 1.1rem;
-      line-height: 1.7;
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
-    .button, .whatsapp-button {
+
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 28px;
-      margin-top: 1rem;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
       background-color: var(--accent);
       color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: transform 0.2s ease, background-color 0.3s ease;
-      font-weight: 500;
+      border-color: var(--accent);
     }
-    .whatsapp-button {
-      background-color: #25D366;
+
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--accent);
     }
-    .button:hover, .whatsapp-button:hover {
-      transform: scale(1.05);
-      filter: brightness(1.1);
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--accent);
+      border-color: var(--accent);
     }
-    .whatsapp-button svg {
+
+    .btn-secondary:hover {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .btn svg {
       margin-right: 8px;
-      width: 20px;
-      height: 20px;
-      fill: white;
+      width: 18px;
+      height: 18px;
     }
 
     /* Contact Form */
+    .contact-section {
+      background: var(--input-bg);
+      padding: 5rem 2rem;
+    }
+
     .contact-form {
       background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 500px;
-      width: 100%;
+      padding: 3rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 0 auto;
       box-shadow: var(--shadow);
-      margin-top: 3rem;
+      border: 1px solid var(--border);
     }
+
     .contact-form h2 {
-      margin-bottom: 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
       color: var(--accent);
+      font-size: 2rem;
     }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
     .contact-form label {
       display: block;
-      margin: 0.5rem 0 0.3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text);
     }
+
     .contact-form input,
     .contact-form textarea {
       width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      margin-bottom: 1rem;
+      padding: 12px 16px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
       background: var(--input-bg);
       color: var(--text);
-    }
-    .contact-form button {
-      background-color: var(--accent);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-    .contact-form button:hover {
-      background-color: #0c70d0;
-      transform: scale(1.05);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
     }
 
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .contact-form button {
+      width: 100%;
+      background-color: var(--accent);
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: var(--secondary);
+    }
+
+    /* Footer */
     footer {
+      background: var(--input-bg);
       text-align: center;
-      margin-top: 4rem;
+      padding: 3rem 2rem;
       font-size: 0.9rem;
       color: var(--footer-text);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--secondary);
     }
 
     /* Theme toggle button */
     .theme-toggle {
       background: var(--chip-bg);
       border-radius: 50%;
-      padding: 8px;
+      padding: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: none;
+      border: 2px solid var(--border);
       cursor: pointer;
-      box-shadow: none;
       color: var(--icon-fill);
+      transition: all 0.3s ease;
     }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
     .theme-toggle svg {
-      width: 26px;
-      height: 26px;
+      width: 20px;
+      height: 20px;
       fill: currentColor;
     }
 
@@ -193,11 +369,12 @@
       transition: all 0.3s ease;
       box-shadow: 0 0 8px rgba(30, 144, 255, 0);
     }
+
     .glow-button:hover {
       box-shadow: 0 0 20px rgba(30, 144, 255, 0.8);
       transform: scale(1.05);
     }
-    
+
     /* Demos section */
     .section-title {
       width: 100%;
@@ -206,43 +383,49 @@
       text-align: center;
       color: var(--accent);
     }
+
     .demos {
       width: 100%;
       max-width: 1000px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.00));
       padding: 2rem;
       border-radius: 14px;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       margin-bottom: 2rem;
     }
+
     .demos-intro {
       text-align: center;
       color: var(--muted-text);
       margin-bottom: 1.5rem;
     }
+
     .demos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.25rem;
     }
+
     .demo-card {
       background: var(--card-bg);
       border-radius: 12px;
       padding: 1rem;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
+
     .demo-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      border-color: rgba(30,144,255,0.4);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      border-color: rgba(30, 144, 255, 0.4);
     }
+
     .demo-media {
       height: 140px;
       border-radius: 10px;
-      background: conic-gradient(from 180deg at 50% 50%, rgba(30,144,255,0.15), rgba(255,255,255,0.04), rgba(30,144,255,0.15));
-      border: 1px dashed rgba(255,255,255,0.08);
+      background: conic-gradient(from 180deg at 50% 50%, rgba(30, 144, 255, 0.15), rgba(255, 255, 255, 0.04), rgba(30, 144, 255, 0.15));
+      border: 1px dashed rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -251,57 +434,68 @@
       position: relative;
       overflow: hidden;
     }
+
     .demo-media::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(600px 120px at 10% 10%, rgba(30,144,255,0.12), transparent 40%),
-                  radial-gradient(600px 120px at 90% 90%, rgba(255,255,255,0.06), transparent 40%);
+      background: radial-gradient(600px 120px at 10% 10%, rgba(30, 144, 255, 0.12), transparent 40%),
+        radial-gradient(600px 120px at 90% 90%, rgba(255, 255, 255, 0.06), transparent 40%);
       pointer-events: none;
     }
+
     .demo-card h3 {
       margin: 0.25rem 0 0.35rem;
     }
+
     .demo-card p {
       margin: 0 0 0.75rem;
       color: var(--muted-text);
     }
+
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 0.9rem;
     }
+
     .tags span {
       background: var(--chip-bg);
       color: var(--text);
       font-size: 0.85rem;
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
+
     .demo-actions {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
+
     .button.secondary {
       background: transparent;
       color: var(--accent);
       border: 1px solid var(--accent);
     }
+
     .button.secondary:hover {
-      background: rgba(30,144,255,0.12);
+      background: rgba(30, 144, 255, 0.12);
     }
+
     .more-link {
       text-align: center;
       margin-top: 1.25rem;
     }
+
     .ghost-link {
       color: var(--muted-text);
       text-decoration: none;
       position: relative;
     }
+
     .ghost-link::after {
       content: "";
       position: absolute;
@@ -309,229 +503,358 @@
       bottom: -2px;
       width: 100%;
       height: 2px;
-      background: linear-gradient(90deg, rgba(30,144,255,0.0), var(--accent), rgba(30,144,255,0.0));
+      background: linear-gradient(90deg, rgba(30, 144, 255, 0.0), var(--accent), rgba(30, 144, 255, 0.0));
       opacity: 0.6;
       transition: opacity 0.2s ease;
     }
+
     .ghost-link:hover::after {
       opacity: 1;
     }
 
-    /* About Me Section */
-    .about-me {
+    /* Sections */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
       text-align: center;
+      margin-bottom: 3rem;
+      color: var(--text);
+    }
+
+    .section-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* About section */
+    .about-content {
+      text-align: center;
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      color: var(--muted-text);
+      line-height: 1.7;
       margin-bottom: 2rem;
     }
 
     /* Skills Section */
-    .skills {
-      width: 100%;
-      max-width: 800px;
-      margin-bottom: 2rem;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
+
+    .skill-item {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
     }
-    .skill {
-      width: 100%;
-      max-width: 350px;
+
+    .skill-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
     }
+
     .skill-name {
-      margin-bottom: 0.5rem;
-      font-weight: 500;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text);
     }
+
     .skill-bar {
       width: 100%;
       background-color: var(--input-bg);
-      border-radius: 5px;
-      height: 10px;
+      border-radius: 10px;
+      height: 8px;
+      overflow: hidden;
     }
+
     .skill-percentage {
       height: 100%;
-      background-color: var(--accent);
-      border-radius: 5px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      border-radius: 10px;
+      transition: width 0.8s ease;
     }
 
     /* Projects Section */
-    .projects-section {
-      width: 100%;
-      max-width: 1200px;
-    }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
+
     .project-card {
       background: var(--card-bg);
       border-radius: 12px;
-      padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
     }
+
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      border-color: rgba(30,144,255,0.5);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 35, 102, 0.15);
+      border-color: var(--accent);
     }
+
     .project-card h3 {
-      margin: 0 0 0.5rem;
-      color: var(--accent);
-    }
-    .project-card p {
       margin: 0 0 1rem;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+
+    .project-card p {
+      margin: 0 0 2rem;
       color: var(--muted-text);
       flex-grow: 1;
+      line-height: 1.6;
     }
+
     .project-actions {
       display: flex;
-      gap: 10px;
+      gap: 1rem;
       margin-top: auto;
     }
-    .project-button {
-      display: inline-block;
-      padding: 10px 18px;
+
+    .project-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
       background-color: var(--accent);
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s, transform 0.2s;
-      border: 1px solid var(--accent);
-    }
-    .project-button:hover {
-      background-color: #0c70d0;
-      transform: scale(1.05);
-    }
-    .project-button.secondary {
-      background: transparent;
-    }
-    .project-button.secondary:hover {
-      background: rgba(30,144,255,0.12);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 2px solid var(--accent);
     }
 
+    .project-btn:hover {
+      background-color: transparent;
+      color: var(--accent);
+    }
+
+    .project-btn.secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .project-btn.secondary:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
-      body {
-        padding: 1rem;
+      .nav-container {
+        padding: 0 1rem;
       }
-      header {
-        padding: 1.5rem;
+
+      .nav-links {
+        display: none;
       }
-      h1 {
+
+      .hero {
+        padding: 4rem 1rem;
+      }
+
+      .hero h1 {
         font-size: 2.5rem;
       }
-      .header-buttons {
-        flex-direction: column;
-        gap: 1rem;
+
+      .hero-subtitle {
+        font-size: 1.2rem;
       }
-      .top-right-buttons {
-        position: static;
-        flex-direction: row;
-        justify-content: center;
-        margin-bottom: 1rem;
+
+      .section {
+        padding: 3rem 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 2rem;
+        margin: 0 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .nav-container {
+        height: 60px;
+      }
+
+      main {
+        margin-top: 60px;
       }
     }
   </style>
 </head>
+
 <body>
-
-  <!-- Top right corner buttons -->
-  <div class="top-right-buttons" style="position: absolute; top: 24px; right: 32px; display: flex; gap: 16px; z-index: 10;">
-    <!-- GitHub Icon Button -->
-    <a href="https://github.com/Brian1789" target="_blank" title="GitHub" style="background: var(--chip-bg); border-radius: 50%; padding: 8px; display: flex; align-items: center; justify-content: center; color: var(--icon-fill);">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.625-5.475 5.921.43.371.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
-      </svg>
-    </a>
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme"></button>
-    <!-- Projects Button -->
-    <!-- Contact Me Button -->
-    <a href="#contact-form" title="Contact Me" style="background: #25D366; color: #fff; border-radius: 8px; padding: 8px 16px; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
-      Contact Me
-    </a>
-  </div>
-
-  <header>
-    <img src="profile-pic.jpg" alt="Profile" class="profile-pic" />
-    <h1>Brian Ochieng</h1>
-    <div class="animated-text" id="animated-text"></div>
-    <p>I build smart, elegant web solutions and I'm on a journey to financial freedom — one project at a time. 💡</p>
-    <div class="header-buttons">
-      <a href="https://wa.me/254742021609" class="whatsapp-button" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-          <path d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.259.596 4.463 1.727 6.401L3.2 28.8l6.566-1.698a12.72 12.72 0 0 0 6.235 1.597h.001c7.063 0 12.799-5.736 12.799-12.8s-5.736-12.8-12.8-12.8zm.001 23.2a10.897 10.897 0 0 1-5.503-1.505l-.393-.229-3.899 1.008 1.042-3.805-.255-.392a10.861 10.861 0 0 1-1.692-5.843c0-6.012 4.888-10.9 10.9-10.9 2.91 0 5.641 1.134 7.695 3.187s3.188 4.785 3.188 7.695c0 6.012-4.888 10.9-10.9 10.9zm6.136-8.261c-.336-.168-1.985-.98-2.294-1.092-.308-.112-.533-.168-.757.169-.224.336-.869 1.092-1.065 1.316-.196.224-.393.252-.729.084-.336-.168-1.417-.522-2.699-1.662-1-.894-1.674-1.995-1.87-2.331-.196-.336-.021-.517.147-.686.151-.15.336-.393.504-.589.168-.196.224-.336.336-.561.112-.224.056-.42-.028-.589-.084-.168-.757-1.835-1.038-2.515-.273-.656-.552-.567-.757-.577l-.646-.012c-.196 0-.514.07-.784.336s-1.03 1.005-1.03 2.451 1.055 2.841 1.202 3.041c.147.196 2.076 3.168 5.033 4.439.703.303 1.252.484 1.679.619.705.224 1.344.192 1.848.117.564-.084 1.985-.81 2.266-1.592.28-.785.28-1.46.196-1.593-.084-.133-.308-.21-.644-.379z"/>
-        </svg>
-        Chat on WhatsApp
-      </a>
-      <a href="https://drive.google.com/uc?export=download&id=1TOmSrScH01Size8lD6u9ZRMViA_fXsAU" class="button" target="_blank" rel="noopener">
-        Download Resume
-      </a>
-    </div>
-  </header>
-
-  <section id="about" class="about-me">
-    <h2 class="section-title">About Me</h2>
-    <p>
-      I am a passionate web developer with a knack for creating smart, elegant solutions. My journey in tech is driven by a desire for continuous learning and financial freedom. I specialize in front-end development and am expanding my skills in back-end technologies.
-    </p>
-  </section>
-
-  <section id="skills" class="skills">
-    <h2 class="section-title">My Skills</h2>
-    <div class="skills-container">
-      <div class="skill">
-        <div class="skill-name">HTML</div>
-        <div class="skill-bar">
-          <div class="skill-percentage" style="width: 85%;"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">CSS</div>
-        <div class="skill-bar">
-          <div class="skill-percentage" style="width: 80%;"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">JavaScript</div>
-        <div class="skill-bar">
-          <div class="skill-percentage" style="width: 80%;"></div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Node.js</div>
-        <div class="skill-bar">
-          <div class="skill-percentage" style="width: 50%;"></div>
-        </div>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="logo">Brian Ochieng</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://github.com/Brian1789" target="_blank" title="GitHub" class="btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.625-5.475 5.921.43.371.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+        </a>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme"></button>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <section id="projects" class="projects-section">
-    <h2 class="section-title">My Projects</h2>
-    <div class="projects-grid" id="projects-grid">
-      <!-- Projects will be loaded here by JavaScript -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="profile-pic.jpg" alt="Brian Ochieng" class="profile-pic" />
+      <h1>Hi there! I'm Brian Ochieng.</h1>
+      <div class="hero-subtitle">
+        <div class="animated-text" id="animated-text"></div>
+      </div>
+      <p class="hero-description">
+        I build smart, elegant web solutions and I'm on a journey to financial freedom — one project at a time. I
+        specialize in transforming complex ideas into beautiful, functional websites with a passion for quality and
+        innovation. 💡
+      </p>
+      <div class="cta-buttons">
+        <a href="#projects" class="btn btn-primary">View My Journey →</a>
+        <a href="https://wa.me/254742021609" class="btn btn-secondary" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path
+              d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.259.596 4.463 1.727 6.401L3.2 28.8l6.566-1.698a12.72 12.72 0 0 0 6.235 1.597h.001c7.063 0 12.799-5.736 12.799-12.8s-5.736-12.8-12.8-12.8zm.001 23.2a10.897 10.897 0 0 1-5.503-1.505l-.393-.229-3.899 1.008 1.042-3.805-.255-.392a10.861 10.861 0 0 1-1.692-5.843c0-6.012 4.888-10.9 10.9-10.9 2.91 0 5.641 1.134 7.695 3.187s3.188 4.785 3.188 7.695c0 6.012-4.888 10.9-10.9 10.9zm6.136-8.261c-.336-.168-1.985-.98-2.294-1.092-.308-.112-.533-.168-.757.169-.224.336-.869 1.092-1.065 1.316-.196.224-.393.252-.729.084-.336-.168-1.417-.522-2.699-1.662-1-.894-1.674-1.995-1.87-2.331-.196-.336-.021-.517.147-.686.151-.15.336-.393.504-.589.168-.196.224-.336.336-.561.112-.224.056-.42-.028-.589-.084-.168-.757-1.835-1.038-2.515-.273-.656-.552-.567-.757-.577l-.646-.012c-.196 0-.514.07-.784.336s-1.03 1.005-1.03 2.451 1.055 2.841 1.202 3.041c.147.196 2.076 3.168 5.033 4.439.703.303 1.252.484 1.679.619.705.224 1.344.192 1.848.117.564-.084 1.985-.81 2.266-1.592.28-.785.28-1.46.196-1.593-.084-.133-.308-.21-.644-.379z" />
+          </svg>
+          Get In Touch ✉️
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="section-content">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <p>
+            I am a passionate web developer with a knack for creating smart, elegant solutions. My journey in tech is
+            driven by a desire for continuous learning and financial freedom. I specialize in front-end development and
+            am expanding my skills in back-end technologies.
+          </p>
+          <div class="cta-buttons" style="margin-top: 2rem;">
+            <a href="https://drive.google.com/uc?export=download&id=1TOmSrScH01Size8lD6u9ZRMViA_fXsAU"
+              class="btn btn-primary" target="_blank" rel="noopener">
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="section-content">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-name">HTML</div>
+            <div class="skill-bar">
+              <div class="skill-percentage" style="width: 85%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">CSS</div>
+            <div class="skill-bar">
+              <div class="skill-percentage" style="width: 80%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-bar">
+              <div class="skill-percentage" style="width: 80%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Node.js</div>
+            <div class="skill-bar">
+              <div class="skill-percentage" style="width: 50%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="section-content">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid" id="projects-grid">
+          <!-- Projects will be loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="contact-form">
+      <h2>Contact Me</h2>
+      <form action="https://formspree.io/f/mqalgvkr" method="POST">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" autocomplete="off" rows="5" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
     </div>
-  </section>
-
-  <section class="contact-form" id="contact-form">
-    <h2>Contact Me</h2>
-    <form action="https://formspree.io/f/mqalgvkr" method="POST">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
   </section>
 
   <footer>
@@ -540,25 +863,28 @@
     Made with <span style="color:#e25555;">&#10084;&#65039;</span> and lots of <span title="coffee">☕</span>.<br>
     <a href="https://wa.me/254742021609" target="_blank" style="display:inline-block;vertical-align:middle;">
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32" style="vertical-align:middle;">
-        <path fill="#25D366" d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.259.596 4.463 1.727 6.401L3.2 28.8l6.566-1.698a12.72 12.72 0 0 0 6.235 1.597h.001c7.063 0 12.799-5.736 12.799-12.8s-5.736-12.8-12.8-12.8zm.001 23.2a10.897 10.897 0 0 1-5.503-1.505l-.393-.229-3.899 1.008 1.042-3.805-.255-.392a10.861 10.861 0 0 1-1.692-5.843c0-6.012 4.888-10.9 10.9-10.9 2.91 0 5.641 1.134 7.695 3.187s3.188 4.785 3.188 7.695c0 6.012-4.888 10.9-10.9 10.9zm6.136-8.261c-.336-.168-1.985-.98-2.294-1.092-.308-.112-.533-.168-.757.169-.224.336-.869 1.092-1.065 1.316-.196.224-.393.252-.729.084-.336-.168-1.417-.522-2.699-1.662-1-.894-1.674-1.995-1.87-2.331-.196-.336-.021-.517.147-.686.151-.15.336-.393.504-.589.168-.196.224-.336.336-.561.112-.224.056-.42-.028-.589-.084-.168-.757-1.835-1.038-2.515-.273-.656-.552-.567-.757-.577l-.646-.012c-.196 0-.514.07-.784.336s-1.03 1.005-1.03 2.451 1.055 2.841 1.202 3.041c.147.196 2.076 3.168 5.033 4.439.703.303 1.252.484 1.679.619.705.224 1.344.192 1.848.117.564-.084 1.985-.81 2.266-1.592.28-.785.28-1.46.196-1.593-.084-.133-.308-.21-.644-.379z"/>
+        <path fill="#25D366"
+          d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.259.596 4.463 1.727 6.401L3.2 28.8l6.566-1.698a12.72 12.72 0 0 0 6.235 1.597h.001c7.063 0 12.799-5.736 12.799-12.8s-5.736-12.8-12.8-12.8zm.001 23.2a10.897 10.897 0 0 1-5.503-1.505l-.393-.229-3.899 1.008 1.042-3.805-.255-.392a10.861 10.861 0 0 1-1.692-5.843c0-6.012 4.888-10.9 10.9-10.9 2.91 0 5.641 1.134 7.695 3.187s3.188 4.785 3.188 7.695c0 6.012-4.888 10.9-10.9 10.9zm6.136-8.261c-.336-.168-1.985-.98-2.294-1.092-.308-.112-.533-.168-.757.169-.224.336-.869 1.092-1.065 1.316-.196.224-.393.252-.729.084-.336-.168-1.417-.522-2.699-1.662-1-.894-1.674-1.995-1.87-2.331-.196-.336-.021-.517.147-.686.151-.15.336-.393.504-.589.168-.196.224-.336.336-.561.112-.224.056-.42-.028-.589-.084-.168-.757-1.835-1.038-2.515-.273-.656-.552-.567-.757-.577l-.646-.012c-.196 0-.514.07-.784.336s-1.03 1.005-1.03 2.451 1.055 2.841 1.202 3.041c.147.196 2.076 3.168 5.033 4.439.703.303 1.252.484 1.679.619.705.224 1.344.192 1.848.117.564-.084 1.985-.81 2.266-1.592.28-.785.28-1.46.196-1.593-.084-.133-.308-.21-.644-.379z" />
       </svg>
       <span style="color:#25D366; font-weight:bold; vertical-align:middle;">WhatsApp</span>
     </a>
     <div style="margin-top: 10px;">
-      <a href="https://github.com/Brian1789" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">Explore my GitHub for more templates →</a>
+      <a href="https://github.com/Brian1789" target="_blank">Explore my GitHub for more templates →</a>
     </div>
   </footer>
 
   <!-- Cookie Consent Banner -->
-  <div id="cookie-banner" style="display:none; position:fixed; bottom:24px; left:0; right:0; background: var(--card-bg); color: var(--text); padding:16px; text-align:center; z-index:1000; box-shadow: var(--shadow);">
+  <div id="cookie-banner"
+    style="display:none; position:fixed; bottom:24px; left:0; right:0; background: var(--card-bg); color: var(--text); padding:16px; text-align:center; z-index:1000; box-shadow: var(--shadow);">
     This site uses cookies to enhance your experience.
-    <button id="accept-cookies" style="margin-left:16px; background:#25D366; color:#fff; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">Accept</button>
+    <button id="accept-cookies"
+      style="margin-left:16px; background:#25D366; color:#fff; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">Accept</button>
   </div>
   <script>
     // Set a cookie
     function setCookie(name, value, days) {
       const d = new Date();
-      d.setTime(d.getTime() + (days*24*60*60*1000));
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
       document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
     }
     // Get a cookie
@@ -566,7 +892,7 @@
       const cname = name + "=";
       const decodedCookie = decodeURIComponent(document.cookie);
       const ca = decodedCookie.split(';');
-      for(let i = 0; i < ca.length; i++) {
+      for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
         while (c.charAt(0) == ' ') c = c.substring(1);
         if (c.indexOf(cname) == 0) return c.substring(cname.length, c.length);
@@ -574,11 +900,11 @@
       return "";
     }
     // Show banner if not accepted
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       if (!getCookie("cookiesAccepted")) {
         document.getElementById("cookie-banner").style.display = "block";
       }
-      document.getElementById("accept-cookies").onclick = function() {
+      document.getElementById("accept-cookies").onclick = function () {
         setCookie("cookiesAccepted", "yes", 365);
         document.getElementById("cookie-banner").style.display = "none";
       }
@@ -593,34 +919,34 @@
       const toggleBtn = document.getElementById('theme-toggle');
 
       function getPreferredTheme() {
-        return localStorage.getItem(THEME_KEY) || 'dark';
+        return localStorage.getItem(THEME_KEY) || 'light';
       }
       function updateToggleIcon(theme) {
         if (!toggleBtn) return;
-        if (theme === 'light') {
-          // Show moon icon (suggests switching to dark)
-          toggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
-        } else {
+        if (theme === 'dark') {
           // Show sun icon (suggests switching to light)
           toggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zm10.48 0l1.79-1.8 1.41 1.41-1.8 1.79-1.4-1.4zM12 4V1h-2v3h2zm6 8h3v-2h-3v2zM4 12H1v-2h3v2zm8 8v3h-2v-3h2zm7.24-2.84l1.8 1.79-1.41 1.41-1.79-1.8 1.4-1.4zM4.22 17.76l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM12 6a6 6 0 100 12A6 6 0 0012 6z"/></svg>';
+        } else {
+          // Show moon icon (suggests switching to dark)
+          toggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
         }
       }
       function applyTheme(theme) {
-        if (theme === 'light') {
-          body.classList.add('light-theme');
+        if (theme === 'dark') {
+          body.classList.add('dark-theme');
         } else {
-          body.classList.remove('light-theme');
+          body.classList.remove('dark-theme');
         }
         localStorage.setItem(THEME_KEY, theme);
         updateToggleIcon(theme);
       }
 
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         const saved = getPreferredTheme();
         applyTheme(saved);
         if (toggleBtn) {
           toggleBtn.addEventListener('click', function () {
-            const next = body.classList.contains('light-theme') ? 'dark' : 'light';
+            const next = body.classList.contains('dark-theme') ? 'light' : 'dark';
             applyTheme(next);
           });
         }
@@ -709,14 +1035,14 @@
             const repoButton = document.createElement('a');
             repoButton.href = repo.html_url;
             repoButton.textContent = 'View Repository';
-            repoButton.className = 'project-button';
+            repoButton.className = 'project-btn';
             repoButton.target = '_blank';
 
             if (specialProjects[repo.name]) {
               const demoButton = document.createElement('a');
               demoButton.href = specialProjects[repo.name];
               demoButton.textContent = 'Live Demo';
-              demoButton.className = 'project-button secondary';
+              demoButton.className = 'project-btn secondary';
               demoButton.target = '_blank';
               actions.appendChild(demoButton);
             }
@@ -737,4 +1063,5 @@
     });
   </script>
 </body>
+
 </html>
